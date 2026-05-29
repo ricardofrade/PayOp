@@ -1,0 +1,33 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'com.rfrade.payop.presentation'
+    compileSdk libs.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdk.get().toInteger()
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.valueOf(libs.versions.javaVersion.get())
+        targetCompatibility JavaVersion.valueOf(libs.versions.javaVersion.get())
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+
+    implementation libs.appcompat
+    implementation libs.recyclerview
+    implementation libs.coordinatorlayout
+    implementation libs.fragment
+    implementation libs.material
+    implementation libs.lifecycle.viewmodel
+    implementation libs.rxandroid
+    implementation libs.dagger
+    annotationProcessor libs.dagger.compiler
+}
